@@ -9,6 +9,8 @@ function login_page() {
                 <input type="email" class="form-control" id="email" placeholder="Email address">
                 <input type="password" class="form-control" id="password" placeholder="Password">
                 <button type="button" class="btn btn-primary" onclick="signIn()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="googleSignIn()">GSI</button>
+
             </form>
             `;
         }
@@ -24,7 +26,7 @@ async function signIn(){
         }
         const password = document.getElementById('password').value
         await firebase.auth().signInWithEmailAndPassword(email, password)
-        window.location.href = '/home'
+        window.location = '/home'
     } catch (e){
         glPageContent.innerHTML = `
         Login Failed:<br>
@@ -33,4 +35,17 @@ async function signIn(){
         <a href="/login" class="btn btn-outline-primary">Go To Login</a>
         `; 
     }
+}
+
+
+
+googleSignIn=()=>{
+  base_provider = new firebase.auth.GoogleAuthProvider()
+  firebase.auth().signInWithPopup(base_provider).then(function(result){
+    console.log(result)
+    console.log("Success.. Google Account Linked")
+  }).catch(function(err){
+    console.log(err)
+    console.log("Failed to do")
+  })
 }

@@ -28,6 +28,8 @@ app.get('/login', frontendHandler);
 app.get('/home', frontendHandler);
 app.get('/add', frontendHandler);
 app.get('/show', frontendHandler);
+app.get('/googlesignin', frontendHandler);
+
 
 //backend programming
 
@@ -67,6 +69,7 @@ app.get('/b/about', auth, (req, res) => {
     res.render('about.ejs', {user: req.user})
 })
 
+
 app.get('/b/contact', auth, (req, res) => {
     res.render('contact.ejs', {user: req.user})
 })
@@ -87,6 +90,9 @@ app.post('/b/signin', async (req, res) => {
 
     }
 })
+
+
+  
 
 app.get('/b/signout', async(req, res) => {
     try{

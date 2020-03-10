@@ -1,10 +1,10 @@
-function add_page() {
-    auth('prodadmin@test.com',add_page_secured, '/login')
-}
+// function add_page() {
+//     auth('prodadmin@test.com',add_page_secured, '/login')
+// }
 
 let glImageFile2Add; //file selected by imageButton
 
-function add_page_secured() {
+function add_page() {
     glPageContent.innerHTML = '<h1>Add Page</h1>'
     glPageContent.innerHTML = `
         <a href='/home' class="btn btn-outline-primary">Home</a>

@@ -1,11 +1,11 @@
-function show_page() {
-    auth('prodadmin@test.com', show_page_secured, '/login')
-}
+// function show_page() {
+//     auth('prodadmin@test.com', show_page_secured, '/login')
+// }
 
 let products; //list of products read from db
 
 
-async function show_page_secured() {
+async function show_page() {
     glPageContent.innerHTML = '<h1>Show Page</h1>'
     glPageContent.innerHTML += `
     <a href='/home' class="btn btn-outline-primary">Home</a>
